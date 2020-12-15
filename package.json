@@ -1,7 +1,7 @@
 {
-  "name": "spectacle",
+  "name": "deck-design-patterns",
   "version": "6.2.0",
-  "description": "ReactJS Powered Presentation Framework",
+  "description": "Slide-deck for Design Patterns Introduction",
   "main": "lib/index.js",
   "module": "es/index.js",
   "types": "index.d.ts",
