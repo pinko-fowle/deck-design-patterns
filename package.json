@@ -6,6 +6,7 @@
   "module": "es/index.js",
   "types": "index.d.ts",
   "scripts": {
+    "start": "webpack-dev-server --port=3000 --hot --config patterns/webpack.config.js",
     "start:js": "webpack-dev-server --port=3000 --hot --config examples/js/webpack.config.js",
     "start:md": "webpack-dev-server --port=3100 --hot --config examples/md/webpack.config.js",
     "start:one-page": "open examples/one-page.html",
@@ -48,6 +49,7 @@
     "prism-react-renderer": "^0.1.7",
     "query-string": "^6.8.2",
     "react-spring": "^8.0.25",
+    "spectacle-theme-nova": "^1.4.1",
     "styled-components": "^4.3.2",
     "styled-system": "^5.1.1",
     "wonka": "^3.2.0"
