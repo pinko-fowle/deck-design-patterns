@@ -43,6 +43,7 @@
   "browserslist": "> 0.25%, not dead",
   "dependencies": {
     "broadcastchannel-polyfill": "^1.0.0",
+    "css-loader": "^5.0.1",
     "history": "^4.9.0",
     "marksy": "^8.0.0",
     "normalize-newline": "^3.0.0",
@@ -50,6 +51,7 @@
     "query-string": "^6.8.2",
     "react-spring": "^8.0.25",
     "spectacle-theme-nova": "^1.4.1",
+    "style-loader": "^2.0.0",
     "styled-components": "^4.3.2",
     "styled-system": "^5.1.1",
     "wonka": "^3.2.0"

@@ -23,5 +23,9 @@ module.exports = {
     alias: {
       spectacle: path.resolve(__dirname, '../src')
     }
+  },
+  devServer: {
+    contentBase: path.resolve(__dirname, "public"),
+    compress: true
   }
 };
