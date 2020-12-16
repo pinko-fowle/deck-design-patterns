@@ -31,6 +31,7 @@ import {
 
 import * as gof from "./gof.js"
 import * as links from "./links.js"
+import * as pl from "./pattern-lang.js"
 import * as patterns from "./patterns.js"
 
 // SPECTACLE_CLI_THEME_START
@@ -38,7 +39,15 @@ const theme = {
   fonts: {
     header: '"Open Sans Condensed", Helvetica, Arial, sans-serif',
     text: '"Open Sans Condensed", Helvetica, Arial, sans-serif'
-  }
+  },
+	colors: {
+		primary: "#E6EEF3",
+		secondary: "#7FC1CA",
+		tertiary: "#3C4C55",
+		yellow: "#DADA93",
+		//tertiary: "#DADA93",
+		//background: "#3C4C55"
+	}
 };
 // SPECTACLE_CLI_THEME_END
 
@@ -53,12 +62,14 @@ const template = () => (
     bottom={0}
     width={1}
   >
-    <Box padding="0 0.5em">
+    <Box padding="0 0.3em">
       <FullScreen />
     </Box>
+	{/*
     <Box padding="1em">
       <Progress />
     </Box>
+	*/}
   </FlexBox>
 );
 // SPECTACLE_CLI_TEMPLATE_END
@@ -92,6 +103,25 @@ const index = [
 ]
 
 const snake = n => n.toLowerCase().replaceAll(/ /g, "_").replaceAll(/[?]/g, "")
+
+const TakeAwaySlide = () => (<Slide>
+		<Heading mb="0px">Take-aways from this talk</Heading>
+		<UnorderedList margin="0 auto">
+			<Appear elementNum={0}>
+				<ListItem>Some sense of <b>what</b> patterns are, how they can help us</ListItem>
+			</Appear>
+			<Appear elementNum={1}>
+				<ListItem>Knowledge of the <b>availability</b> of patterns to help us figure out what code to build</ListItem>
+			</Appear>
+			<Appear elementNum={2}>
+				<ListItem>See that patterns give us <b>vocabulary/language</b> to talk to others with</ListItem>
+			</Appear>
+			<Appear elementNum={3}>
+				<ListItem>Insight to <b>recognize</b> patterns when reading code</ListItem>
+			</Appear>
+		</UnorderedList>
+	</Slide>)
+
 
 const IndexSlide = props => {
 	const color = i => props.n < i ? "primary" : "secondary"
@@ -188,7 +218,7 @@ const Presentation = () => (
 			<Sub>This presentation is very much about</Sub>
 			<Heading>Design Patterns: Elements of Reusable Object-Oriented Software</Heading>
 			<Appear elementNum={0}>
-				<Sub>But we are going to neander-by-example our way towards the book</Sub>
+				<Sub>But we are going to meander-by-example our way towards the book</Sub>
 			</Appear>
 			<Appear elementNum={1}>
 				<Sub>(Hold tight)</Sub>
@@ -212,23 +242,7 @@ const Presentation = () => (
 			<Sub {...unbold}>This should give you ideas, & give you some context</Sub>
 			<Sub {...unbold}>That you can use to begin to think about code differently with</Sub>
 		</Slide>
-		<Slide>
-			<Heading mb="0px">Take-aways from this talk</Heading>
-			<UnorderedList margin="0 auto">
-				<Appear elementNum={0}>
-					<ListItem>Some sense of <b>what</b> patterns are, how they can help us</ListItem>
-				</Appear>
-				<Appear elementNum={1}>
-					<ListItem>Knowledge of the <b>availability</b> of patterns to help us figure out what code to build</ListItem>
-				</Appear>
-				<Appear elementNum={2}>
-					<ListItem>See that patterns give us <b>vocabulary/language</b> to talk to others with</ListItem>
-				</Appear>
-				<Appear elementNum={3}>
-					<ListItem>Insight to <b>recognize</b> patterns when reading code</ListItem>
-				</Appear>
-			</UnorderedList>
-		</Slide>
+		{TakeAwaySlide()}
 
 		{IndexSlide({n: 1})}
 		<Slide>
@@ -265,6 +279,16 @@ const Presentation = () => (
 			</Quote>
 		</Slide>
 		<Slide>
+			<Text></Text>
+			<Text>And that is the sense what a design pattern is</Text>
+			<Appear elementNum={0}>
+				<Text>An <b>identified</b>, <b>resuable</b> <b>solution</b> to commonly re-ocurring <b>problems</b> or situations</Text>
+			</Appear>
+			<Sub>Let's look at the elements of a Design Pattern a little more closely!</Sub>
+		</Slide>
+		{IndexSlide({n: 2})}
+
+		<Slide>
 			<Heading>MVC: a Smalltalk pattern</Heading>
 			<Text margin="0px 16px">MVC, with it's model, view, & controller, is a pattern in Smalltalk.</Text>
 			<UnorderedList>
@@ -274,16 +298,6 @@ const Presentation = () => (
 				{AI({n: 3, children: <Frag>We would not expect two programs to to have identical MVC implementations</Frag>})}
 			</UnorderedList>
 		</Slide>
-		<Slide>
-			<Text></Text>
-			<Text>And that is the sense what a design pattern is</Text>
-			<Appear elementNum={0}>
-				<Text>An <b>identified</b>, <b>resuable</b> <b>solution</b> to commonly re-ocurring <b>problems</b> or situations</Text>
-			</Appear>
-			<Sub>Let's look at the elements of a Design Pattern a little more closely!</Sub>
-		</Slide>
-
-		{IndexSlide({n: 2})}
 		<Slide>
 			<Sub color="secondary"><i>Design Patterns</i> identifies 4 elements to a Design Pattern:</Sub>
 			<Text fontSize="2.1rem"><b>Name:</b> "{gof.elements.name}"</Text>
@@ -398,6 +412,15 @@ const Presentation = () => (
 				<ListItem>filtering which updates the observer gets</ListItem>
 			</UnorderedList>
 		</Slide>
+		<Slide>
+			<Heading>A pattern is general, and adaptable</Heading>
+			<Text>
+				A good pattern can be adapted to the environment.
+			</Text>
+			<Quote>
+				{pl.elements.imposeNothing}
+			</Quote>
+		</Slide>
 
 		{IndexSlide({n: 4})}
 		<Slide>
@@ -424,16 +447,14 @@ const Presentation = () => (
 			<Quote fontSize="2rem">{gof.mvcStrategy.invariance}</Quote>
 			<Notes>Show off diagrams from book</Notes>
 		</Slide>
-		{PatternSlide({pattern: patterns.strategy})}
 
+		{IndexSlide({n: 4})}
 		<Slide>
 			<Heading>Invariance, generalness</Heading>
 		</Slide>
 
 		{/* patterns you know: prototype, singleton,   */}
 		{/* favorite patterns:	*/}
-	
-		
 
 		<Slide>
 			<FlexBox height="100%">
@@ -447,19 +468,10 @@ const Presentation = () => (
 				</Appear>
 			</FlexBox>
 		</Slide>
-		<Slide>
-			<FlexBox height="100%" flexDirection="column">
-				<Heading margin="0px" fontSize="96px">
-					Design Patterns
-				</Heading>
-				<Heading margin="0px" fontSize="h2">
-					What are design patterns?
-				</Heading>
-				<Heading margin="0px 32px" color="primary" fontSize="h3">
-					
-				</Heading>
-			</FlexBox>
-		</Slide>
+
+		{TakeAwaySlide()}
+
+
 		<Slide
 			backgroundColor="tertiary"
 			backgroundImage="url(https://github.com/FormidableLabs/dogs/blob/main/beau.jpg?raw=true)"

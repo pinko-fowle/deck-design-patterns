@@ -115,17 +115,17 @@ export const mvcComposite = {
 		the primitives into more complex objects.`
 }
 
-export const mvStrategy = {
+export const mvcStrategy = {
 	pieces: `MVC also lets you change the way a view responds to user input without changing its
 		visual presentation. You might want to change the way it responds to the keyboard, for
 		example, or have it use a pop-up menu instead of command keys. MVC encapsulates the response
 		mechanism in a Controller object. There is a class hierarchy of controllers, making it easy
-		to create a new controller as a variation on an existing one.`
+		to create a new controller as a variation on an existing one.`,
 	strategy: `A view uses an instance of a Controller subclass to implement a particular response
 		strategy; to implement a different strategy, simply replace the instance with a different
 		kind of controller. It’s even possible to change a view’s controller at run-time to let the
 		view change the way it responds to user input. For example, a view can be disabled so that
-		it doesn’t accept input simply by giving it a controller that ignores input events.`
+		it doesn’t accept input simply by giving it a controller that ignores input events.`,
 	pattern: `The View-Controller relationship is an example of the Strategy design pattern. A
 		Strategy is an object that represents an algorithm. It’s useful when you want to replace
 		the algorithm either statically or dynamically, when you have a lot of variants of the

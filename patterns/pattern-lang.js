@@ -38,7 +38,7 @@ export const elements = {
 	profound: `But of course, we have not always succeeded. The solutions we have given to
 		these problems vary in significance. Some are more true, more profound, more
 		certain, than others. To show this clearly we have marked every pattern, in the
-		text itself, with two asterisks, or one asterisk, or no asterisks.`
+		text itself, with two asterisks, or one asterisk, or no asterisks.`,
 	trueInvariant: `In the patterns marked with two asterisks, we believe that we have
 		succeeded in stating a true invariant: in short, that the solution we have stated
 		summarizes a _property_ common to _all possible ways_ of solving the stated
