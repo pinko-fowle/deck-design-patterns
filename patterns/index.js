@@ -107,7 +107,7 @@ const IndexSlide = props => {
 
 const PatternSlide = props => {
 	const p = props.pattern
-	const aka = p.aka && (<Frag><b>AKA:</b> {p.aka && p.aka.join(", ")}<br/></Frag>)
+	const aka = p.aka && (<Frag><b>AKA:</b> {p.aka && p.aka.join(", ")}<br/></Frag>) || ""
 	return (<Slide id={p.name}>
 			<Heading margin="12px 24px 0px">{p.name} Pattern</Heading>
 			<Text margin="0px 12px" padding="16px 16px 0px" fontSize="2rem">
@@ -216,7 +216,7 @@ const Presentation = () => (
 			<Heading mb="0px">Take-aways from this talk</Heading>
 			<UnorderedList margin="0 auto">
 				<Appear elementNum={0}>
-					<ListItem>Some sense of <b>what</b> patterns are, how they can help us.</ListItem>
+					<ListItem>Some sense of <b>what</b> patterns are, how they can help us</ListItem>
 				</Appear>
 				<Appear elementNum={1}>
 					<ListItem>Knowledge of the <b>availability</b> of patterns to help us figure out what code to build</ListItem>
@@ -402,8 +402,8 @@ const Presentation = () => (
 		{IndexSlide({n: 4})}
 		<Slide>
 			<Sub>Invariance</Sub>
-			<Heading>Unpacking other general patterns from MVC</Heading>
-			<UnorderedList>
+			<Heading>Unpacking other patterns from MVC</Heading>
+			<UnorderedList margin="16px auto">
 				<ListItem>Observer</ListItem>
 				<ListItem>Composite</ListItem>
 				<ListItem>Strategy</ListItem>
@@ -411,13 +411,28 @@ const Presentation = () => (
 			</UnorderedList>
 		</Slide>
 		<Slide>
-			<Heading>MVC & the Composite Pattern</Heading>
-			<Quote>{gof.mvcComposite.pieces}</Quote>
-			<Quote>{gof.mvcComposite.invariance}</Quote>
+			<Heading margin="12px 16px 0px">MVC & the <i>Composite</i> Pattern</Heading>
+			<Quote fontSize="2rem">{gof.mvcComposite.pieces}</Quote>
+			<Quote fontSize="2rem">{gof.mvcComposite.invariance}</Quote>
+			<Notes>Show off diagrams from book</Notes>
 		</Slide>
-		
+		{PatternSlide({pattern: patterns.composite})}
+
+		<Slide>
+			<Heading margin="12px 16px 0px">MVC & the <i>Strategy</i> Pattern</Heading>
+			<Quote fontSize="2rem">{gof.mvcStrategy.pieces}</Quote>
+			<Quote fontSize="2rem">{gof.mvcStrategy.invariance}</Quote>
+			<Notes>Show off diagrams from book</Notes>
+		</Slide>
+		{PatternSlide({pattern: patterns.strategy})}
+
+		<Slide>
+			<Heading>Invariance, generalness</Heading>
+		</Slide>
+
 		{/* patterns you know: prototype, singleton,   */}
 		{/* favorite patterns:	*/}
+	
 		
 
 		<Slide>
